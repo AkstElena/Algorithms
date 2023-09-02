@@ -1,4 +1,4 @@
-package Seminar;
+package Seminar.Seminar1;
 
 public class Task2 {
 

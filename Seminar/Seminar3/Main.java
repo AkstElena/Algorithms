@@ -66,7 +66,8 @@ public class Main {
     // list2.deleteLast2();
     // list2.printList2();
 
-    list2.bubbleSort();
+    // list2.bubbleSort();
+    list2.sort();
     list2.printList2();
 
   }

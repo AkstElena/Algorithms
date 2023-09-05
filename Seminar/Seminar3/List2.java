@@ -85,6 +85,7 @@ public class List2 {
    * не только по индексам, как делают все остальные сортировки.
    */
 
+  // сортировка с заменой только значений
   public void bubbleSort() {
     boolean needSort = true;
     while (needSort) {
@@ -100,6 +101,41 @@ public class List2 {
         currentNode2 = currentNode2.next;
       }
     }
+  }
+
+  // сортировка с заменой ячеек данных, перестановка позиций
+  public void sort() {
+    boolean needSort;
+    do {
+      needSort = false;
+      Node2 node = head;
+      while (node != null && node.next != null) {
+        if (node.value > node.next.value) {
+          Node2 before = node.prev;
+          Node2 after = node.next.next;
+          Node2 current = node;
+          Node2 next = node.next;
+
+          current.next = after;
+          current.prev = next;
+          next.next = current;
+          next.prev = before;
+          if (before != null) {
+            before.next = next;
+          } else {
+            head = next;
+          }
+          if (after != null) {
+            after.prev = current;
+          } else {
+            tail = current;
+          }
+
+          needSort = true;
+        }
+        node = node.next;
+      }
+    } while (needSort);
   }
 
   public void printList2() {
